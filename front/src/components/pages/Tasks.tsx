@@ -1,19 +1,30 @@
-import axios from "axios";
-import { memo, VFC } from "react";
+import { Heading, useDisclosure, Wrap, WrapItem } from "@chakra-ui/react";
+import { memo, useEffect, VFC } from "react";
+
+import { useAllTasks } from "../../hooks/useAllTasks";
+import { Task } from "../../types/task";
+import { TaskCard } from "../organisms/TaskCard";
+import { TaskModal } from "../organisms/TaskModal";
 
 export const Tasks: VFC = memo(() => {
-    const api = axios.create({
-        baseURL: "http://localhost:8000",
-    });
-    const getTasks = () => {
-        api.get("/api/tasks")
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err))
-    };
+
+    const { tasks, getTasks } = useAllTasks();
+
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
+    useEffect(() => getTasks(), []);
+
     return (
         <>
-            <p>Tasks</p>
-            <button onClick={getTasks} >getTasks</button>
+            <Heading mx={28} my={8}>ToDo</Heading>
+            <Wrap justify="center">
+                {tasks.map((task: Task) => (
+                    <WrapItem key={`${task.id}`}>
+                        <TaskCard task={task} onOpen={onOpen} />
+                    </WrapItem>
+                ))}
+            </Wrap>
+            <TaskModal isOpen={isOpen} onClose={onClose} />
         </>
     )
 })

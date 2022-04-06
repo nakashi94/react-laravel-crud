@@ -1,7 +1,7 @@
 import { memo, VFC } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Button, Center, Grid, GridItem, Heading, Input, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Box, Button, Center, Grid, GridItem, Heading, Input, Link, Text } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
 
 export const Login: VFC = memo(() => {
     const navigate = useNavigate();
@@ -37,9 +37,9 @@ export const Login: VFC = memo(() => {
                     </GridItem>
                     <GridItem rowSpan={2} textAlign="center">
                         <Box color="blue.800">
-                            <Link to="/register">アカウント作成</Link>
+                            <Link as={RouterLink} to="/register" color={"blue.400"} >アカウント作成</Link>
                             <br />
-                            <Link to="/register">パスワードを忘れた場合はこちら</Link>
+                            <Link as={RouterLink} to="/register" color={"blue.400"}>パスワードを忘れた場合はこちら</Link>
                         </Box>
                     </GridItem>
                 </Grid>
