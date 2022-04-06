@@ -46,7 +46,7 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        return Task::findorFail($id);
     }
 
     /**

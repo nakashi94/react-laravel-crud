@@ -8,7 +8,6 @@ export const useAllTasks = () => {
     const [tasks, setTasks] = useState<Array<Task>>([]);
 
     const getTasks = useCallback(() => {
-        console.log("getTasks")
         api.get("/api/tasks")
             .then(res => setTasks(res.data))
             .catch((err) => {
