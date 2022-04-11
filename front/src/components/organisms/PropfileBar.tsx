@@ -17,7 +17,7 @@ export const ProfileBar: VFC = memo(() => {
 
     const onClickEditProfile = useCallback(() => {
         navigate("/tasks/setting");
-    }, []);
+    }, [navigate]);
 
     return (
         <Flex maxW={{ base: "95%", md: "80%" }} align="center" mx="auto">
@@ -27,7 +27,7 @@ export const ProfileBar: VFC = memo(() => {
                     size="full"
                     src="https://i.pinimg.com/736x/88/29/66/882966981cbf79deacb7ca54ef3f692e.jpg"
                     p={1}
-                    bg="white"
+                    bg="gray.50"
                 />
             </Center>
             <Box w={{ base: "220px", md: "280px" }} ml={{ base: "6", md: "8" }}>
