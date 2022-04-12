@@ -1,7 +1,5 @@
-import { memo, VFC } from "react";
+import { memo, VFC } from 'react';
 
 export const Page404: VFC = memo(() => {
-    return (
-        <>Page404</>
-    );
-})
+  return <>Page404</>;
+});
