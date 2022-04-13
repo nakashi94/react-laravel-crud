@@ -1,10 +1,12 @@
-import { Avatar, Box, Button, Center, Flex, Icon, Text, VStack } from '@chakra-ui/react';
+import {
+  Avatar, Box, Button, Center, Flex, Icon, Text, VStack,
+} from '@chakra-ui/react';
 import { AiFillGithub, AiOutlineTwitter } from 'react-icons/ai';
 import { memo, useCallback, VFC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const ProfileBar: VFC = memo(() => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onClickEditProfile = useCallback(() => {
     navigate('/tasks/setting');

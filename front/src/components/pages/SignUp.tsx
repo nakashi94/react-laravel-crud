@@ -1,4 +1,6 @@
-import { memo, useCallback, useState, VFC } from 'react';
+import {
+  memo, useCallback, useState, VFC,
+} from 'react';
 import {
   Flex,
   Box,
@@ -18,7 +20,7 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
 
 export const SignUp: VFC = memo(() => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onClickLogin = useCallback(() => {
     navigate('/');
@@ -27,14 +29,14 @@ export const SignUp: VFC = memo(() => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <Flex minH={'100vh'} align={'center'} justify={'center'} bg={useColorModeValue('gray.50', 'gray.800')}>
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-        <Stack align={'center'}>
-          <Heading fontSize={'4xl'} textAlign={'center'}>
+    <Flex minH="100vh" align="center" justify="center" bg={useColorModeValue('gray.50', 'gray.800')}>
+      <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
+        <Stack align="center">
+          <Heading fontSize="4xl" textAlign="center">
             Sign up
           </Heading>
         </Stack>
-        <Box rounded={'lg'} bg={useColorModeValue('white', 'gray.700')} boxShadow={'lg'} p={8}>
+        <Box rounded="lg" bg={useColorModeValue('white', 'gray.700')} boxShadow="lg" p={8}>
           <Stack spacing={4}>
             <Box>
               <FormControl id="firstName" isRequired>
@@ -50,8 +52,8 @@ export const SignUp: VFC = memo(() => {
               <FormLabel>Password</FormLabel>
               <InputGroup>
                 <Input type={showPassword ? 'text' : 'password'} />
-                <InputRightElement h={'full'}>
-                  <Button variant={'ghost'} onClick={() => setShowPassword((showPassword) => !showPassword)}>
+                <InputRightElement h="full">
+                  <Button variant="ghost" onClick={() => setShowPassword((showPassword) => !showPassword)}>
                     {showPassword ? <ViewIcon /> : <ViewOffIcon />}
                   </Button>
                 </InputRightElement>
@@ -61,8 +63,8 @@ export const SignUp: VFC = memo(() => {
               <Button
                 loadingText="Submitting"
                 size="lg"
-                bg={'blue.400'}
-                color={'white'}
+                bg="blue.400"
+                color="white"
                 _hover={{
                   bg: 'blue.500',
                 }}
@@ -71,9 +73,10 @@ export const SignUp: VFC = memo(() => {
               </Button>
             </Stack>
             <Stack pt={6}>
-              <Text align={'center'}>
-                Already a user?{' '}
-                <Link color={'blue.400'} onClick={onClickLogin}>
+              <Text align="center">
+                Already a user?
+                {' '}
+                <Link color="blue.400" onClick={onClickLogin}>
                   Login
                 </Link>
               </Text>

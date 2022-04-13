@@ -15,7 +15,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 export const SignIn: VFC = memo(() => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onClickTasks = useCallback(() => {
     navigate('/tasks');
@@ -26,12 +26,12 @@ export const SignIn: VFC = memo(() => {
   }, [navigate]);
 
   return (
-    <Flex minH={'100vh'} align={'center'} justify={'center'} bg={useColorModeValue('gray.50', 'gray.800')}>
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-        <Stack align={'center'}>
-          <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+    <Flex minH="100vh" align="center" justify="center" bg={useColorModeValue('gray.50', 'gray.800')}>
+      <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
+        <Stack align="center">
+          <Heading fontSize="4xl">Sign in to your account</Heading>
         </Stack>
-        <Box rounded={'lg'} bg={useColorModeValue('white', 'gray.700')} boxShadow={'lg'} p={8}>
+        <Box rounded="lg" bg={useColorModeValue('white', 'gray.700')} boxShadow="lg" p={8}>
           <Stack spacing={4}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
@@ -42,13 +42,13 @@ export const SignIn: VFC = memo(() => {
               <Input type="password" />
             </FormControl>
             <Stack spacing={10}>
-              <Stack direction={{ base: 'column', sm: 'row' }} align={'start'} justify={'space-between'}>
+              <Stack direction={{ base: 'column', sm: 'row' }} align="start" justify="space-between">
                 <Checkbox>Remember me</Checkbox>
-                <Link color={'blue.400'}>Forgot password?</Link>
+                <Link color="blue.400">Forgot password?</Link>
               </Stack>
               <Button
-                bg={'blue.400'}
-                color={'white'}
+                bg="blue.400"
+                color="white"
                 _hover={{
                   bg: 'blue.500',
                 }}
@@ -56,7 +56,7 @@ export const SignIn: VFC = memo(() => {
               >
                 Sign in
               </Button>
-              <Link color={'blue.400'} onClick={onClickRegister}>
+              <Link color="blue.400" onClick={onClickRegister}>
                 you don't have your account?
               </Link>
             </Stack>
