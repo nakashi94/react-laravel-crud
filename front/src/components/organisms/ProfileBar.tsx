@@ -1,6 +1,4 @@
-import {
-  Avatar, Box, Button, Center, Flex, Icon, Text, VStack,
-} from '@chakra-ui/react';
+import { Avatar, Box, Button, Center, Flex, Icon, Text, VStack } from '@chakra-ui/react';
 import { AiFillGithub, AiOutlineTwitter } from 'react-icons/ai';
 import { memo, useCallback, VFC } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +11,7 @@ export const ProfileBar: VFC = memo(() => {
   }, [navigate]);
 
   return (
-    <Flex maxW={{ base: '95%', md: '80%' }} align="center" mx="auto">
+    <Flex maxW={{ base: '95%', md: '70%' }} align="center" mx="auto" mb={{ base: '30px', md: '60px' }}>
       <Center w={{ base: '150px', md: '200px' }}>
         <Avatar
           name="Pikachu"
@@ -49,11 +47,11 @@ export const ProfileBar: VFC = memo(() => {
           </Box>
         </VStack>
       </Box>
-      <Center flex="1">
+      <Box flex="1" textAlign="end">
         <Button shadow="md" onClick={onClickEditProfile}>
           Edit Profile
         </Button>
-      </Center>
+      </Box>
     </Flex>
   );
 });

@@ -13,11 +13,15 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import { useMessage } from '../../hooks/useMessage';
 
 export const SignIn: VFC = memo(() => {
+  const { showMessage } = useMessage();
+
   const navigate = useNavigate();
 
   const onClickTasks = useCallback(() => {
+    showMessage({ title: 'ログインに成功しました。', status: 'success' });
     navigate('/tasks');
   }, [navigate]);
 

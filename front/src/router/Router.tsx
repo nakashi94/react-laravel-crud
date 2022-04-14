@@ -24,7 +24,7 @@ export const Router: VFC = memo(() => (
           </Route>
           <Route path="*" element={<Page404 />} />
         </Routes>
-        )}
+      )}
     />
     <Route path="*" element={<Page404 />} />
   </Routes>
