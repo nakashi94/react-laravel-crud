@@ -1,6 +1,6 @@
 export type Task = {
     id: number;
-    content: String;
+    content: string;
     created_at: string;
     updated_at: string;
 }

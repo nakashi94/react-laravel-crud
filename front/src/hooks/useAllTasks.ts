@@ -6,9 +6,11 @@ import { useMessage } from "./useMessage";
 
 export const useAllTasks = () => {
     const { showMessage } = useMessage();
-    const [tasks, setTasks] = useState<Array<Task>>([])
+    const [tasks, setTasks] = useState<Array<Task>>([]);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const getTasks = useCallback(() => {
+        setLoading(true);
         axios.get<Array<Task>>(`${laravel}/api/tasks`)
             .then((res) => {
                 setTasks(res.data);
@@ -17,6 +19,9 @@ export const useAllTasks = () => {
                 showMessage({ title: "ユーザーの取得に失敗しました。", status: "error" })
                 console.log(err)
             })
+            .finally(() => {
+                setLoading(false);
+            })
     }, []);
-    return { tasks, getTasks };
+    return { loading, tasks, getTasks };
 }
