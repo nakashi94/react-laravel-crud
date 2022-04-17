@@ -35,7 +35,14 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'content' => 'required',
+        ]);
+
+        $task = new Task;
+        $task->content = $request->input('content');
+        $task->save();
+        return "create successfully!";
     }
 
     /**
@@ -80,6 +87,9 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task = Task::findorFail($id);
+        if ($task->delete()) {
+            return "delete successfully!";
+        }
     }
 }
