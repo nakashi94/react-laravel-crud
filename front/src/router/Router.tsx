@@ -14,7 +14,7 @@ export const Router: VFC = memo(() => (
     <Route path="register" element={<SignUp />} />
     <Route
       path="tasks/*"
-      element={(
+      element={
         <Routes>
           <Route path="/" element={<HeaderAndProfileBarAndFooter />}>
             <Route index element={<Tasks />} />
@@ -24,7 +24,7 @@ export const Router: VFC = memo(() => (
           </Route>
           <Route path="*" element={<Page404 />} />
         </Routes>
-      )}
+      }
     />
     <Route path="*" element={<Page404 />} />
   </Routes>

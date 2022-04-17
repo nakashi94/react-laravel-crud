@@ -1,6 +1,4 @@
-import {
-  memo, useCallback, useState, VFC,
-} from 'react';
+import { memo, useCallback, useState, VFC } from 'react';
 import {
   Flex,
   Box,
@@ -74,8 +72,7 @@ export const SignUp: VFC = memo(() => {
             </Stack>
             <Stack pt={6}>
               <Text align="center">
-                Already a user?
-                {' '}
+                Already a user?{' '}
                 <Link color="blue.400" onClick={onClickLogin}>
                   Login
                 </Link>

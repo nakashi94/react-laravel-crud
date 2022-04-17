@@ -1,6 +1,4 @@
-import {
-  Box, chakra, Container, Flex, Link, Stack, Text, useColorModeValue, VisuallyHidden,
-} from '@chakra-ui/react';
+import { Box, chakra, Container, Flex, Link, Stack, Text, useColorModeValue, VisuallyHidden } from '@chakra-ui/react';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
 import { memo, ReactNode, VFC } from 'react';
 
