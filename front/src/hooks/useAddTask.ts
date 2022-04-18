@@ -5,7 +5,7 @@ import { useMessage } from './useMessage';
 
 export const useAddTask = () => {
   const { showMessage } = useMessage();
-  const [addTaskFlag, setAddTaskFlag] = useState<boolean>(false);
+  const [reloadAddFlag, setReloadAddFlag] = useState<boolean>(false);
 
   const addTask = useCallback((text: string) => {
     axios
@@ -13,7 +13,7 @@ export const useAddTask = () => {
         content: text,
       })
       .then((res) => {
-        setAddTaskFlag(!addTaskFlag);
+        setReloadAddFlag(!reloadAddFlag);
         showMessage({ title: 'タスクの追加に成功しました。', status: 'success' });
         console.log(res);
       })
@@ -22,5 +22,5 @@ export const useAddTask = () => {
         console.log(err);
       });
   }, []);
-  return { addTaskFlag, addTask };
+  return { reloadAddFlag, addTask };
 };

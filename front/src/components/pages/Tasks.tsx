@@ -12,9 +12,11 @@ import {
   WrapItem,
 } from '@chakra-ui/react';
 import { ChangeEvent, memo, useCallback, useEffect, VFC } from 'react';
+
 import { useAddTask } from '../../hooks/useAddTask';
 import { useAllTasks } from '../../hooks/useAllTasks';
 import { useChangeText } from '../../hooks/useChangeText';
+import { useDeleteTask } from '../../hooks/useDeleteTask';
 import { useSelectTask } from '../../hooks/useSelectTask';
 import { Task } from '../../types/task';
 import { TaskCard } from '../organisms/TaskCard';
@@ -25,7 +27,8 @@ export const Tasks: VFC = memo(() => {
   const { loading, tasks, getTasks } = useAllTasks();
   const { targetTask, selectTask } = useSelectTask();
   const { text, changeText } = useChangeText();
-  const { addTaskFlag, addTask } = useAddTask();
+  const { reloadAddFlag, addTask } = useAddTask();
+  const { reloadDeleteFlag, deleteTask } = useDeleteTask();
 
   const onChangeText = (e: ChangeEvent<HTMLInputElement>) => {
     changeText(e);
@@ -37,11 +40,20 @@ export const Tasks: VFC = memo(() => {
 
   useEffect(() => {
     getTasks();
-  }, [addTaskFlag]);
+    console.log(tasks);
+  }, [reloadAddFlag, reloadDeleteFlag]);
 
   const onClickTask = useCallback(
     (id: number) => {
       selectTask({ id, tasks, onOpen });
+    },
+    [tasks, selectTask, onOpen]
+  );
+
+  const onClickDelete = useCallback(
+    (id: number) => {
+      deleteTask(id);
+      onClose();
     },
     [tasks, selectTask, onOpen]
   );
@@ -74,7 +86,7 @@ export const Tasks: VFC = memo(() => {
           </Flex>
         </Box>
       )}
-      <TaskModal task={targetTask} isOpen={isOpen} onClose={onClose} />
+      <TaskModal task={targetTask} isOpen={isOpen} onClose={onClose} onClickDelete={onClickDelete} />
     </>
   );
 });
