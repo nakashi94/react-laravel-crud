@@ -8,6 +8,7 @@ export const useAddTask = () => {
   const [reloadAddFlag, setReloadAddFlag] = useState<boolean>(false);
 
   const addTask = useCallback((text: string) => {
+    setReloadAddFlag((prevState) => !prevState);
     axios
       .post(`${laravel}/api/tasks`, {
         content: text,
