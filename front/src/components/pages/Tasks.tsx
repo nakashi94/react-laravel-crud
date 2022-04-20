@@ -13,12 +13,8 @@ import {
 } from '@chakra-ui/react';
 import { ChangeEvent, memo, useCallback, useEffect, VFC } from 'react';
 
-import { useAddTask } from '../../hooks/useAddTask';
-import { useAllTasks } from '../../hooks/useAllTasks';
 import { useChangeText } from '../../hooks/useChangeText';
-import { useDeleteTask } from '../../hooks/useDeleteTask';
-import { useSelectTask } from '../../hooks/useSelectTask';
-import { useUpdateTask } from '../../hooks/useUpdateTask';
+import { useAddTask, useAllTasks, useDeleteTask, useSelectTask, useUpdateTask } from '../../hooks/api/task/useTask';
 import { Task } from '../../types/task';
 import { TaskCard } from '../organisms/TaskCard';
 import { TaskModal } from '../organisms/TaskModal';
