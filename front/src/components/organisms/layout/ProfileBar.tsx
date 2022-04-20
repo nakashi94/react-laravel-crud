@@ -7,7 +7,7 @@ export const ProfileBar: VFC = memo(() => {
   const navigate = useNavigate();
 
   const onClickEditProfile = useCallback(() => {
-    navigate('/tasks/setting');
+    navigate('/setting/profile');
   }, [navigate]);
 
   return (

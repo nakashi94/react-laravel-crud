@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useCallback, useState } from 'react';
 
-import { laravel } from '../../../api/laravelApiEndpoint';
+import { laravelApiEndPoint } from "../../../api/laravelApiEndPoint";
 import { useMessage } from '../..';
 import { selectTask, Task } from '../../../types';
 
@@ -11,7 +11,7 @@ export const useAddTask = () => {
 
   const addTask = useCallback((text: string) => {
     axios
-      .post(`${laravel}/api/tasks`, {
+      .post(`${laravelApiEndPoint}/api/tasks`, {
         content: text,
       })
       .then((res) => {
@@ -38,7 +38,7 @@ export const useAllTasks = () => {
   const getTasks = useCallback(() => {
     setLoading(true);
     axios
-      .get<Array<Task>>(`${laravel}/api/tasks`)
+      .get<Array<Task>>(`${laravelApiEndPoint}/api/tasks`)
       .then((res) => {
         setTasks(res.data);
       })
@@ -59,7 +59,7 @@ export const useDeleteTask = () => {
   const deleteTask = useCallback(
     (id: number) => {
       axios
-        .delete(`${laravel}/api/tasks/${id}`)
+        .delete(`${laravelApiEndPoint}/api/tasks/${id}`)
         .then((res) => {
           console.log(res);
           showMessage({ title: '削除に成功しました。', status: 'success' });
@@ -95,7 +95,7 @@ export const useUpdateTask = () => {
   const { showMessage } = useMessage();
   const updateTask = useCallback((id: number, value: string) => {
     axios
-      .put(`${laravel}/api/tasks/${id}`, {
+      .put(`${laravelApiEndPoint}/api/tasks/${id}`, {
         content: value,
       })
       .then((res) => {
