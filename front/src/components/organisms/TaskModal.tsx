@@ -17,10 +17,11 @@ type Props = {
   onClose: () => void;
   task: Task | null;
   onClickDelete: (id: number) => void;
+  onClickUpdate: (id: number, value: string) => void;
 };
 
 export const TaskModal: VFC<Props> = memo((props) => {
-  const { isOpen, onClose, task, onClickDelete } = props;
+  const { isOpen, onClose, task, onClickDelete, onClickUpdate } = props;
   const [value, setValue] = useState<string>('');
   const [editFlag, setEditFlag] = useState<boolean>(false);
 
@@ -45,7 +46,7 @@ export const TaskModal: VFC<Props> = memo((props) => {
         <ModalFooter>
           {editFlag ? (
             <>
-              <Button colorScheme="blue" mr={4} onClick={onClickEdit}>
+              <Button colorScheme="blue" mr={4} onClick={() => onClickUpdate(task!.id, value)}>
                 update
               </Button>
               <Button colorScheme="red" onClick={onClickEdit}>

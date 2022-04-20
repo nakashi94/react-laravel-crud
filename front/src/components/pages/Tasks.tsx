@@ -18,6 +18,7 @@ import { useAllTasks } from '../../hooks/useAllTasks';
 import { useChangeText } from '../../hooks/useChangeText';
 import { useDeleteTask } from '../../hooks/useDeleteTask';
 import { useSelectTask } from '../../hooks/useSelectTask';
+import { useUpdateTask } from '../../hooks/useUpdateTask';
 import { Task } from '../../types/task';
 import { TaskCard } from '../organisms/TaskCard';
 import { TaskModal } from '../organisms/TaskModal';
@@ -29,6 +30,7 @@ export const Tasks: VFC = memo(() => {
   const { text, changeText } = useChangeText();
   const { reloadAddFlag, addTask } = useAddTask();
   const { reloadDeleteFlag, deleteTask } = useDeleteTask();
+  const { updateTask } = useUpdateTask();
 
   const onChangeText = (e: ChangeEvent<HTMLInputElement>) => {
     changeText(e);
@@ -53,6 +55,14 @@ export const Tasks: VFC = memo(() => {
   const onClickDelete = useCallback(
     (id: number) => {
       deleteTask(id);
+      onClose();
+    },
+    [tasks, selectTask, onOpen]
+  );
+
+  const onClickUpdate = useCallback(
+    (id: number, value: string) => {
+      updateTask(id, value);
       onClose();
     },
     [tasks, selectTask, onOpen]
@@ -86,7 +96,13 @@ export const Tasks: VFC = memo(() => {
           </Flex>
         </Box>
       )}
-      <TaskModal task={targetTask} isOpen={isOpen} onClose={onClose} onClickDelete={onClickDelete} />
+      <TaskModal
+        task={targetTask}
+        isOpen={isOpen}
+        onClose={onClose}
+        onClickDelete={onClickDelete}
+        onClickUpdate={onClickUpdate}
+      />
     </>
   );
 });
