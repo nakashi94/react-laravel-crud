@@ -1,2 +1,2 @@
-export { TaskCard } from "./TaskCard";
-export { TaskModal } from "./TaskModal";
+export { TaskCard } from './TaskCard';
+export { TaskModal } from './TaskModal';

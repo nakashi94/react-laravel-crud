@@ -1,2 +1,2 @@
-export { HeaderAndFooter } from "./HeaderAndFooter";
-export { HeaderAndProfileBarAndFooter } from "./HeaderAndProfileBarAndFooter";
+export { HeaderAndFooter } from './HeaderAndFooter';
+export { HeaderAndProfileBarAndFooter } from './HeaderAndProfileBarAndFooter';
