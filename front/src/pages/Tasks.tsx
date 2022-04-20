@@ -13,11 +13,10 @@ import {
 } from '@chakra-ui/react';
 import { ChangeEvent, memo, useCallback, useEffect, VFC } from 'react';
 
-import { useChangeText } from '../../hooks/useChangeText';
-import { useAddTask, useAllTasks, useDeleteTask, useSelectTask, useUpdateTask } from '../../hooks/api/task/useTask';
-import { Task } from '../../types/task';
-import { TaskCard } from '../organisms/TaskCard';
-import { TaskModal } from '../organisms/TaskModal';
+import { useChangeText } from '../hooks';
+import { useAddTask, useAllTasks, useDeleteTask, useSelectTask, useUpdateTask } from '../hooks/api/task/useTask';
+import { Task } from '../types/task';
+import { TaskCard, TaskModal } from '../components/organisms';
 
 export const Tasks: VFC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();

@@ -1,12 +1,8 @@
 import { memo, VFC } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Page404 } from '../components/pages/Page404';
-import { Setting } from '../components/pages/Setting';
-import { SignIn } from '../components/pages/SignIn';
-import { SignUp } from '../components/pages/SignUp';
-import { Tasks } from '../components/pages/Tasks';
-import { HeaderAndFooter } from '../components/templates/HeaderAndFooter';
-import { HeaderAndProfileBarAndFooter } from '../components/templates/HeaderAndProfileBarAndFooter';
+
+import { Setting, SignIn, SignUp, Tasks, Page404 } from '../pages';
+import { HeaderAndFooter, HeaderAndProfileBarAndFooter } from '../components/templates';
 
 export const Router: VFC = memo(() => (
   <Routes>

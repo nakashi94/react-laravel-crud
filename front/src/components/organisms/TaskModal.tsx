@@ -10,7 +10,8 @@ import {
   ModalOverlay,
   Text,
 } from '@chakra-ui/react';
-import { Task } from '../../types/task';
+
+import { Task } from '../../types';
 
 type Props = {
   isOpen: boolean;

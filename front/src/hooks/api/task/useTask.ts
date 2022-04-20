@@ -2,9 +2,8 @@ import axios from 'axios';
 import { useCallback, useState } from 'react';
 
 import { laravel } from '../../../api/laravelApiEndpoint';
-import { useMessage } from '../../useMessage';
-import { Task } from '../../../types/task';
-import { selectTask } from "../../../types/selectTask";
+import { useMessage } from "../..";
+import { selectTask, Task } from '../../../types';
 
 export const useAddTask = () => {
   const [reloadAddFlag, setReloadAddFlag] = useState<boolean>(false);

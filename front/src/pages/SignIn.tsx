@@ -13,7 +13,8 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import { useMessage } from '../../hooks/useMessage';
+
+import { useMessage } from '../hooks';
 
 export const SignIn: VFC = memo(() => {
   const { showMessage } = useMessage();
