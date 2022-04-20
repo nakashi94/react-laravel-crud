@@ -8,7 +8,6 @@ export const useAddTask = () => {
   const [reloadAddFlag, setReloadAddFlag] = useState<boolean>(false);
 
   const addTask = useCallback((text: string) => {
-    setReloadAddFlag((prevState) => !prevState);
     axios
       .post(`${laravel}/api/tasks`, {
         content: text,
@@ -21,6 +20,9 @@ export const useAddTask = () => {
     	.catch((err) => {
         showMessage({ title: 'タスクの追加に失敗しました。', status: 'error' });
         console.log(err);
+      })
+      .finally(() => {
+        setReloadAddFlag((prevState) => !prevState);
       });
   }, []);
   return { reloadAddFlag, addTask };

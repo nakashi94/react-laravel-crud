@@ -5,7 +5,6 @@ import { laravel } from "../api/laravelApiEndpoint"
 export const useDeleteTask = () => {
     const [reloadDeleteFlag, setReloadDeleteFlag] = useState<boolean>(false);
     const deleteTask = useCallback((id: number) => {
-        setReloadDeleteFlag((prevState) => !prevState);
         axios
             .delete(`${laravel}/api/tasks/${id}`)
             .then((res) => {
@@ -13,6 +12,9 @@ export const useDeleteTask = () => {
             })
             .catch((err) => {
                 console.log(err);
+            })
+            .finally(() => {
+                setReloadDeleteFlag((prevState) => !prevState);
             })
     }, [reloadDeleteFlag]);
     return { reloadDeleteFlag, deleteTask };

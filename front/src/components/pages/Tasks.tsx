@@ -30,7 +30,7 @@ export const Tasks: VFC = memo(() => {
   const { text, changeText } = useChangeText();
   const { reloadAddFlag, addTask } = useAddTask();
   const { reloadDeleteFlag, deleteTask } = useDeleteTask();
-  const { updateTask } = useUpdateTask();
+  const { reloadUpdateFlag, updateTask } = useUpdateTask();
 
   const onChangeText = (e: ChangeEvent<HTMLInputElement>) => {
     changeText(e);
@@ -42,8 +42,7 @@ export const Tasks: VFC = memo(() => {
 
   useEffect(() => {
     getTasks();
-    console.log(tasks);
-  }, [reloadAddFlag, reloadDeleteFlag]);
+  }, [reloadAddFlag, reloadDeleteFlag, reloadUpdateFlag]);
 
   const onClickTask = useCallback(
     (id: number) => {
