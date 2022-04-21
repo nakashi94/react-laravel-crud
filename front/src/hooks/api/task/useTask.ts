@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useCallback, useState } from 'react';
 
-import { laravelApiEndPoint } from "../../../api/laravelApiEndPoint";
+import { laravelApiEndPoint } from '../../../api/laravelApiEndPoint';
 import { useMessage } from '../..';
 import { selectTask, Task } from '../../../types';
 
