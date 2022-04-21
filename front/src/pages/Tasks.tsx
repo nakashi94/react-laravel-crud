@@ -74,10 +74,20 @@ export const Tasks: VFC = memo(() => {
             <Stack direction="column" spacing={{ base: '36px', md: '48px' }}>
               <Flex mt={{ base: '36px', md: '48px' }} justify="space-between">
                 <Heading color="gray.800">Tasks</Heading>
-                <Input placeholder="content" onChange={onChangeText} />
-                <Button bg="blue.200" shadow="md" _hover={{ bg: 'blue.300' }} onClick={onClickAddTask}>
-                  add task
-                </Button>
+                <Box>
+                  <Input
+                    width="auto"
+                    bg="gray.50"
+                    p="16px"
+                    size="md"
+                    mr={4}
+                    placeholder="content"
+                    onChange={onChangeText}
+                  />
+                  <Button bg="blue.200" shadow="md" _hover={{ bg: 'blue.300' }} onClick={onClickAddTask}>
+                    add task
+                  </Button>
+                </Box>
               </Flex>
               <Wrap mx="auto" spacing={8} align="center" justify="center">
                 {tasks.map((task: Task) => (
